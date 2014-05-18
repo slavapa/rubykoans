@@ -1,5 +1,5 @@
 # The path to Ruby Enlightenment starts with the following:
-
+#https://github.com/javierjulio/ruby-koans-completed/blob/master/path_to_enlightenment.rb
 $LOAD_PATH << File.dirname(__FILE__)
 
 require 'about_asserts'
