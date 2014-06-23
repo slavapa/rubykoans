@@ -19,9 +19,8 @@ def triangle(a, b, c)
     raise TriangleError, 'Argument is not valid'
   end
   
-  if a <= 0 || b <= 0 || c <= 0
-    raise TriangleError, 'Argument is not valid'
-  end
+  x, y, z = [a,b,c].sort
+  raise TriangleError if x + y <= z
   
   if a==b && b==c 
     :equilateral
