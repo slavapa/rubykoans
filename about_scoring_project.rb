@@ -31,13 +31,43 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 
 def score(dice)
   # You need to write this method
+  retScore = 0
+  if dice.is_a?(Array)    
+    scoreCount = Hash.new { |hash, key| hash[key] = 0 }    
+    dice.each {|value| scoreCount[value] += 1}
+     
+    scoreCount.each do |key, value|
+      if key == 1
+        if value > 2
+          retScore = 1000
+          value -=3
+        end        
+        retScore += 100 * value
+      else
+        if value > 2
+          retScore = 100 * key
+          value -=3
+        end
+        
+        if key == 5
+          retScore += 50 * value
+        end
+      end
+    end    
+  end   
+  retScore
 end
 
 class AboutScoringProject < Neo::Koan
+  
   def test_score_of_an_empty_list_is_zero
     assert_equal 0, score([])
   end
 
+  def test_score_of_a_single_roll_of_1_is_100
+    assert_equal 100, score([1])
+  end
+  
   def test_score_of_a_single_roll_of_5_is_50
     assert_equal 50, score([5])
   end
