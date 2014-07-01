@@ -1,10 +1,23 @@
+#https://github.com/javierjulio/ruby-koans-completed/blob/master/about_dice_project.rb
 require File.expand_path(File.dirname(__FILE__) + '/neo')
 
 # Implement a DiceSet Class here:
 #
-# class DiceSet
+ class DiceSet
 #   code ...
-# end
+  @values = []
+  
+  def roll(num)
+    @values = Array.new
+    num.times do 
+       @values.push(1 + Random.rand(6))
+    end    
+  end
+  
+  def values
+    @values
+  end
+ end
 
 class AboutDiceProject < Neo::Koan
   def test_can_create_a_dice_set
