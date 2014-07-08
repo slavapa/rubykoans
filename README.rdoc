@@ -192,3 +192,4 @@ Attribution-NonCommercial-ShareAlike, Version 3.0
 
 Example
 https://github.com/javierjulio/ruby-koans-completed/blob/master/about_constants.rb
+https://github.com/mlsimpson/rubykoans
